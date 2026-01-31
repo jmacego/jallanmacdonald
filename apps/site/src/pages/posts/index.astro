@@ -16,20 +16,18 @@ const posts = [
   description="Blog posts and updates from J. Allan MacDonald"
   currentPath="/posts/"
 >
-  <h1>Posts</h1>
+  <section class="section-header" data-animate>
+    <span class="eyebrow">News & Updates</span>
+    <h1 class="section-title">Posts</h1>
+  </section>
 
-  <ul style="list-style: none; padding: 0;">
+  <section class="posts-grid" data-animate style="--delay: 0.15s;">
     {posts.map((post) => (
-      <li style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e0dcd5;">
-        <a href={`/posts/${post.slug}/`}>
-          <h2 style="margin-bottom: 0.5rem;">{post.title}</h2>
-        </a>
-        <p style="font-size: 0.85rem; color: var(--color-muted); margin-bottom: 0.5rem;">
-          {post.date}
-        </p>
-        <p>{post.excerpt}</p>
-        <a href={`/posts/${post.slug}/`}>Read more →</a>
-      </li>
+      <a href={`/posts/${post.slug}/`} class="post-card">
+        <span class="post-date">{post.date}</span>
+        <h2 class="post-title">{post.title}</h2>
+        <p class="post-excerpt">{post.excerpt}</p>
+      </a>
     ))}
-  </ul>
+  </section>
 </BaseLayout>

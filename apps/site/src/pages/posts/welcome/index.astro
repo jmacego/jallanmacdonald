@@ -7,11 +7,11 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
   description="Website's online and Pointless Magical Relics is available on Kindle!"
   currentPath="/posts/"
 >
-  <article>
-    <h1>Welcome!</h1>
-    <p style="font-size: 0.85rem; color: var(--color-muted); margin-bottom: 2rem;">
-      March 31, 2025
-    </p>
+  <article class="card" style="max-width: 720px; margin: 0 auto;" data-animate>
+    <header style="margin-bottom: var(--space-lg);">
+      <span class="eyebrow">March 31, 2025</span>
+      <h1 style="margin-bottom: 0;">Welcome!</h1>
+    </header>
 
     <p>Website's online and one book is available on Kindle!</p>
 
@@ -22,15 +22,17 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
       is available for Amazon Kindle now.
     </p>
 
-    <p style="text-align: center; margin: 2rem 0;">
-      <a href="https://amzn.to/4iRyP6Q" target="_blank" rel="noopener">
+    <div style="text-align: center; margin: var(--space-lg) 0;">
+      <a href="https://amzn.to/4iRyP6Q" target="_blank" rel="noopener" class="book-cover" style="display: inline-block; max-width: 260px;">
         <img
           src="/assets/pointless-magical-relics-kindle-cover.jpg"
           alt="Pointless Magical Relics Cover"
-          style="max-width: 300px; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
+          width="260"
+          height="390"
+          style="border-radius: var(--radius-sm);"
         />
       </a>
-    </p>
+    </div>
 
     <p>
       In <em>Pointless Magical Relics</em>, J. Allan MacDonald conjures an enchanting urban fantasy
@@ -53,9 +55,9 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
       With wry humour, creeping suspense, and just a hint of the uncanny, MacDonald invites readers to
       look closer at the objects we overlook—and the people who never quite belong.
     </p>
-  </article>
 
-  <p style="margin-top: 2rem;">
-    <a href="/posts/">← Back to posts</a>
-  </p>
+    <footer style="margin-top: var(--space-lg); padding-top: var(--space-md); border-top: 1px solid var(--color-border);">
+      <a href="/posts/">← Back to posts</a>
+    </footer>
+  </article>
 </BaseLayout>

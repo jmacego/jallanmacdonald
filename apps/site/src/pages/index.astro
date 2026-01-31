@@ -4,61 +4,77 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout
   title="J. Allan MacDonald - Author"
-  description="Author of Pointless Magical Relics and urban fantasy fiction"
+  description="Author of Pointless Magical Relics, an urban fantasy series beginning in a quiet Seattle bookstore."
   currentPath="/"
 >
-  <section style="text-align: center; margin-bottom: 2rem;">
-    <a href="https://amzn.to/4iRyP6Q" target="_blank" rel="noopener">
-      <img
-        src="/assets/pointless-magical-relics-kindle-cover.jpg"
-        alt="Pointless Magical Relics book cover"
-        style="max-width: 300px; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
-      />
-    </a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content" data-animate>
+      <span class="eyebrow">Now Available</span>
+      <h1 class="hero-title">Pointless Magical Relics</h1>
+      <p class="hero-subtitle">An urban fantasy beginning in a quiet Seattle bookstore.</p>
+      <p class="hero-description">
+        Jen Winslow, a young clerk with a knack for noticing the odd, thought her days were destined
+        to be forgettable—until an unremarkable old book draws the attention of two very different
+        strangers. What begins as a quiet curiosity spirals into something far stranger, where the
+        line between coincidence and fate begins to blur.
+      </p>
+      <div class="cta-row">
+        <a
+          href="https://amzn.to/4iRyP6Q"
+          target="_blank"
+          rel="noopener"
+          class="button button-primary"
+        >
+          Get it on Kindle
+        </a>
+        <a href="/about/" class="button button-ghost">
+          About the Author
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual" data-animate style="--delay: 0.15s;">
+      <div class="book-card">
+        <a href="https://amzn.to/4iRyP6Q" target="_blank" rel="noopener" class="book-cover">
+          <img
+            src="/assets/pointless-magical-relics-kindle-cover.jpg"
+            alt="Pointless Magical Relics book cover"
+            width="320"
+            height="480"
+          />
+        </a>
+      </div>
+    </div>
   </section>
 
-  <h1>Pointless Magical Relics</h1>
-  <p style="font-style: italic; color: var(--color-muted);">
-    Available now on Amazon Kindle
-  </p>
+  <!-- Blurb Section -->
+  <section class="section" data-animate style="--delay: 0.3s;">
+    <div class="blurb">
+      <p>
+        "With wry humour, creeping suspense, and just a hint of the uncanny, MacDonald invites readers to
+        look closer at the objects we overlook—and the people who never quite belong."
+      </p>
+    </div>
+  </section>
 
-  <p>
-    In <em>Pointless Magical Relics</em>, J. Allan MacDonald conjures an enchanting urban fantasy
-    beginning in a quiet Seattle bookstore.
-  </p>
-
-  <p>
-    Jen Winslow, a young clerk with a knack for noticing the odd, thought her days were destined
-    to be forgettable—until an unremarkable old book draws the attention of two very different
-    strangers: a familiar customer and a man who shouldn't be memorable at all.
-  </p>
-
-  <p>
-    As tension coils between the shelves and the weight of the unseen presses in, Jen finds herself
-    drawn into a hidden world of relics, secrets, and subtle magic. What begins as a quiet curiosity
-    spirals into something far stranger, where the line between coincidence and fate begins to blur.
-  </p>
-
-  <p>
-    With wry humour, creeping suspense, and just a hint of the uncanny, MacDonald invites readers to
-    look closer at the objects we overlook—and the people who never quite belong.
-  </p>
-
-  <p style="margin-top: 2rem;">
-    <a
-      href="https://amzn.to/4iRyP6Q"
-      target="_blank"
-      rel="noopener"
-      style="
-        display: inline-block;
-        background: var(--color-accent);
-        color: white;
-        padding: 0.75rem 1.5rem;
-        border-radius: 4px;
-        font-weight: 600;
-      "
-    >
-      Get it on Amazon Kindle →
-    </a>
-  </p>
+  <!-- About Preview -->
+  <section class="section" data-animate style="--delay: 0.4s;">
+    <div class="section-header">
+      <h2 class="section-title">Meet the Author</h2>
+    </div>
+    <div class="card" style="max-width: 680px; margin: 0 auto;">
+      <p>
+        J. Allan MacDonald writes fiction that blends the familiar with the strange—stories where
+        the uncanny hides in plain sight and ordinary people stumble into worlds they weren't
+        supposed to find.
+      </p>
+      <p style="margin-top: var(--space-sm);">
+        Currently exploring the world with his partner M.E. MacDonald, trading calendars for curiosity.
+        The places they visit often find their way into the stories.
+      </p>
+      <p style="margin-top: var(--space-md);">
+        <a href="/about/">Read more about J. Allan MacDonald →</a>
+      </p>
+    </div>
+  </section>
 </BaseLayout>

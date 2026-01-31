@@ -14,122 +14,26 @@ const navLinks = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Source+Sans+Pro:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400..700;1,400..700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" href="/assets/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
-    <meta name="theme-color" content="#2c3e50" />
-    <style>
-      :root {
-        --color-bg: #faf8f5;
-        --color-text: #2c3e50;
-        --color-accent: #8b4513;
-        --color-muted: #6c757d;
-        --font-heading: 'Lora', serif;
-        --font-body: 'Source Sans Pro', sans-serif;
-      }
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        font-size: 18px;
-      }
-      body {
-        font-family: var(--font-body);
-        background: var(--color-bg);
-        color: var(--color-text);
-        line-height: 1.7;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-      a {
-        color: var(--color-accent);
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      .site-header {
-        padding: 2rem;
-        text-align: center;
-        border-bottom: 1px solid #e0dcd5;
-      }
-      .brand-title {
-        font-family: var(--font-heading);
-        font-size: 2rem;
-        font-weight: 600;
-        color: var(--color-text);
-        margin-bottom: 0.25rem;
-      }
-      .brand-tag {
-        font-size: 0.9rem;
-        color: var(--color-muted);
-        font-style: italic;
-      }
-      .site-nav {
-        margin-top: 1.5rem;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-      }
-      .nav-link {
-        font-weight: 400;
-        color: var(--color-text);
-        padding: 0.25rem 0;
-        border-bottom: 2px solid transparent;
-      }
-      .nav-link:hover,
-      .nav-link.active {
-        color: var(--color-accent);
-        border-bottom-color: var(--color-accent);
-        text-decoration: none;
-      }
-      main {
-        flex: 1;
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 3rem 1.5rem;
-        width: 100%;
-      }
-      .site-footer {
-        text-align: center;
-        padding: 2rem;
-        font-size: 0.85rem;
-        color: var(--color-muted);
-        border-top: 1px solid #e0dcd5;
-      }
-      h1, h2, h3 {
-        font-family: var(--font-heading);
-        font-weight: 600;
-        line-height: 1.3;
-        margin-bottom: 1rem;
-      }
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.5rem; }
-      h3 { font-size: 1.25rem; }
-      p {
-        margin-bottom: 1rem;
-      }
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-    </style>
+    <meta name="theme-color" content="#faf6ef" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#151518" media="(prefers-color-scheme: dark)" />
+    <link rel="stylesheet" href="/assets/styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <a href="/">
-        <div class="brand-title">J. Allan MacDonald</div>
-        <div class="brand-tag">Author of Pointless Magical Relics</div>
+    <header class="site-header" data-animate>
+      <a class="brand" href="/">
+        <span class="brand-title">J. Allan MacDonald</span>
+        <span class="brand-tag">Author of Pointless Magical Relics</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
         {navLinks.map((link) => (
@@ -150,11 +54,16 @@ const navLinks = [
 
     <footer class="site-footer">
       <div>&copy; {year} J. Allan MacDonald</div>
-      <div>
+      <nav class="footer-links" aria-label="Footer">
         <a href="https://www.amazon.com/stores/J.-Allan-MacDonald/author/B0F33W5CJT" target="_blank" rel="noopener">
-          Amazon Author Page
+          Amazon
         </a>
-      </div>
+        <a href="https://thelongwaymac.com" target="_blank" rel="noopener">
+          Travel Blog
+        </a>
+      </nav>
     </footer>
+
+    <slot name="scripts" />
   </body>
 </html>

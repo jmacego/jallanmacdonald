@@ -4,9 +4,69 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 <BaseLayout
   title="About - J. Allan MacDonald"
-  description="About J. Allan MacDonald, author of urban fantasy fiction"
+  description="J. Allan MacDonald writes urban fantasy fiction. Author of Pointless Magical Relics. Currently traveling the world."
   currentPath="/about/"
 >
-  <h1>About</h1>
-  <p>Coming Soon!</p>
+  <section class="section-header" data-animate>
+    <span class="eyebrow">About the Author</span>
+    <h1 class="section-title">J. Allan MacDonald</h1>
+  </section>
+
+  <section class="about-grid">
+    <aside class="about-sidebar" data-animate style="--delay: 0.1s;">
+      <div class="about-portrait">
+        <span>Photo coming soon</span>
+      </div>
+    </aside>
+
+    <div class="about-content" data-animate style="--delay: 0.2s;">
+      <p class="about-intro">
+        J. Allan MacDonald writes fiction that blends the familiar with the strange—stories where
+        the uncanny hides in plain sight and ordinary people stumble into worlds they weren't
+        supposed to find.
+      </p>
+
+      <div class="about-section">
+        <h3>The Writing</h3>
+        <p>
+          His debut novel <em>Pointless Magical Relics</em> begins in a quiet Seattle bookstore,
+          where an unremarkable old book draws the attention of two very different strangers.
+          What unfolds is an urban fantasy with wry humour, creeping suspense, and a hidden
+          world of relics, secrets, and subtle magic.
+        </p>
+        <p>
+          More stories are on the way.
+        </p>
+      </div>
+
+      <div class="about-section">
+        <h3>The Journey</h3>
+        <p>
+          When not writing, he's exploring the world with his partner M.E. MacDonald—trading
+          calendars for curiosity. Starting from Los Angeles, they're heading westbound through
+          the Pacific Northwest, Cebu, and wherever the map makes room next. The places they visit
+          often find their way into the stories.
+        </p>
+        <p>
+          Follow along at <a href="https://thelongwaymac.com" target="_blank" rel="noopener">The Long Way Mac</a>.
+        </p>
+      </div>
+
+      <div class="about-section">
+        <h3>Connect</h3>
+        <ul class="link-list">
+          <li>
+            <a href="https://www.amazon.com/stores/J.-Allan-MacDonald/author/B0F33W5CJT" target="_blank" rel="noopener">
+              Amazon Author Page
+            </a>
+          </li>
+          <li>
+            <a href="https://thelongwaymac.com" target="_blank" rel="noopener">
+              Travel Blog
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
