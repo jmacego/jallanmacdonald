@@ -1,0 +1,23 @@
+{
+  "name": "jallanmacdonald-infra",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "tsc",
+    "synth": "cdk synth",
+    "diff": "cdk diff",
+    "deploy": "cdk deploy",
+    "deploy:aws": "bash -c 'set -a && source ../.env && set +a && cdk deploy \"$STACK_NAME\" --require-approval never'"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.148.0",
+    "constructs": "^10.3.0"
+  },
+  "devDependencies": {
+    "aws-cdk": "^2.148.0",
+    "@types/node": "^20.11.30",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = [
+  {
+    slug: "welcome",
+    title: "Welcome!",
+    date: "March 31, 2025",
+    excerpt: "Website's online and one book is available on Kindle!",
+  },
+];
+---
+
+<BaseLayout
+  title="Posts - J. Allan MacDonald"
+  description="Blog posts and updates from J. Allan MacDonald"
+  currentPath="/posts/"
+>
+  <h1>Posts</h1>
+
+  <ul style="list-style: none; padding: 0;">
+    {posts.map((post) => (
+      <li style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e0dcd5;">
+        <a href={`/posts/${post.slug}/`}>
+          <h2 style="margin-bottom: 0.5rem;">{post.title}</h2>
+        </a>
+        <p style="font-size: 0.85rem; color: var(--color-muted); margin-bottom: 0.5rem;">
+          {post.date}
+        </p>
+        <p>{post.excerpt}</p>
+        <a href={`/posts/${post.slug}/`}>Read more →</a>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

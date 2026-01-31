@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+apps/site/dist/
+apps/site/.astro/
+infra/dist/
+infra/cdk.out/
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Lock files are committed
+# pnpm-lock.yaml

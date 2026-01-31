@@ -1,0 +1,58 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: "10"
+
+      - name: Validate locally (lint/test/build/synth)
+        run: ./scripts/validate.sh
+
+      - name: Set defaults
+        shell: bash
+        run: |
+          echo "AWS_REGION=${AWS_REGION:-us-west-2}" >> "$GITHUB_ENV"
+          echo "AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-us-west-2}" >> "$GITHUB_ENV"
+          echo "DOMAIN_NAME=${DOMAIN_NAME:-jallanmacdonald.com}" >> "$GITHUB_ENV"
+          echo "SITE_SUBDOMAIN=${SITE_SUBDOMAIN:-www}" >> "$GITHUB_ENV"
+          echo "STACK_NAME=${STACK_NAME:-JAllanMacDonaldSiteStack}" >> "$GITHUB_ENV"
+        env:
+          AWS_REGION: ${{ vars.AWS_REGION }}
+          AWS_DEFAULT_REGION: ${{ vars.AWS_DEFAULT_REGION }}
+          DOMAIN_NAME: ${{ vars.DOMAIN_NAME }}
+          SITE_SUBDOMAIN: ${{ vars.SITE_SUBDOMAIN }}
+          STACK_NAME: ${{ vars.STACK_NAME }}
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Deploy
+        run: pnpm --dir infra exec cdk deploy "$STACK_NAME" --require-approval never
