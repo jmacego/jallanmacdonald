@@ -37,6 +37,10 @@ Enable the pre-push hook:
 ./scripts/setup-githooks.sh
 ```
 
+Hooks:
+- Pre-commit runs `./scripts/validate.sh --quick`
+- Pre-push runs `./scripts/validate.sh`
+
 ## Deploy
 
 ### GitHub Actions (recommended)

@@ -21,6 +21,11 @@ pnpm run dev                    # Start dev server at localhost:4321
 ./scripts/validate.sh           # Run all validation (required before push)
 ```
 
+## Local Validation Hooks
+Set up git hooks (once per clone): `./scripts/setup-githooks.sh`
+- Pre-commit: `./scripts/validate.sh --quick`
+- Pre-push: `./scripts/validate.sh`
+
 ## Content Conventions
 - Pages in `apps/site/src/pages/`
 - Layouts in `apps/site/src/layouts/`
@@ -31,6 +36,7 @@ pnpm run dev                    # Start dev server at localhost:4321
 - Do not edit `apps/site/dist/` (generated output)
 - Run `./scripts/validate.sh` before pushing
 - Pre-push hook enforces validation
+- Keep `.github/copilot-instructions.md` in sync with this file
 
 ## Related Repositories
 This repo is part of a personal multi-repo ecosystem:

@@ -21,6 +21,22 @@ unset NPM_CONFIG_DIR
 export CDK_DEFAULT_REGION="${CDK_DEFAULT_REGION:-${AWS_REGION:-us-west-2}}"
 export CDK_DEFAULT_ACCOUNT="${CDK_DEFAULT_ACCOUNT:-000000000000}"
 
+QUICK=0
+if [[ "${1:-}" == "--quick" ]]; then
+  QUICK=1
+fi
+
+if [[ "$QUICK" -eq 1 ]]; then
+  log "Install site dependencies."
+  pnpm --dir "$ROOT_DIR/apps/site" install --frozen-lockfile
+
+  log "Build site."
+  pnpm --dir "$ROOT_DIR/apps/site" run build
+
+  log "Quick validation complete."
+  exit 0
+fi
+
 log "Install site dependencies."
 pnpm --dir "$ROOT_DIR/apps/site" install --frozen-lockfile
 

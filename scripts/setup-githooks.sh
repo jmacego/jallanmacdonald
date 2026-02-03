@@ -9,6 +9,6 @@ if ! git -C "$ROOT_DIR" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 fi
 
 git -C "$ROOT_DIR" config core.hooksPath .githooks
-chmod +x "$ROOT_DIR/.githooks/pre-push"
+chmod +x "$ROOT_DIR/.githooks/pre-commit" "$ROOT_DIR/.githooks/pre-push"
 
 echo "Git hooks configured."
