@@ -3,6 +3,12 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
+if [[ -f "$ROOT_DIR/../scripts/sanitize-runtime-env.sh" ]]; then
+  # shellcheck source=/dev/null
+  source "$ROOT_DIR/../scripts/sanitize-runtime-env.sh"
+  sanitize_runtime_env
+fi
+
 log() {
   printf "\n[%s] %s\n" "$(date +"%H:%M:%S")" "$1"
 }
