@@ -1,5 +1,6 @@
 # GitHub Copilot Instructions
 
-Follow the guidance in `AGENTS.md` at the repo root. It is the single source of truth.
+Use `AGENTS.md` as the single source of truth for agent guidance.
 
-Validation is required before push: `./scripts/validate.sh` (hooks run `--quick` on commit).
+- For repository-specific instructions: use this repository's `AGENTS.md`.
+- For cross-repo work in `/workspace`: use `/workspace/AGENTS.md`.
