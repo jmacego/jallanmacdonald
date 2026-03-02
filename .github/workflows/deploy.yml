@@ -67,7 +67,7 @@ jobs:
           HOSTED_ZONE_ID: ${{ env.HOSTED_ZONE_ID }}
 
       - name: Deploy
-        run: pnpm --dir infra exec cdk deploy "$STACK_NAME" --require-approval never
+        run: pnpm --dir infra exec cdk deploy "$STACK_NAME" --exclusively --require-approval never
 
       - name: Ensure required DNS records (post-deploy)
         if: always()
