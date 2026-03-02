@@ -72,5 +72,7 @@ Required `.env` keys for manual deploys:
 - `DOMAIN_NAME=jallanmacdonald.com`
 - `SITE_SUBDOMAIN=www`
 - `STACK_NAME=JAllanMacDonaldSiteStack`
+- `HOSTED_ZONE_ID=<Route53 hosted zone id>`
 
-After deployment, update your domain registrar with the Route53 name servers from the stack output.
+DNS records are source-controlled in `infra/dns/required-records.json`.
+Deploy commands enforce and verify these records before and after deployment; deploy fails on DNS drift.

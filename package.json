@@ -6,6 +6,6 @@
     "build:site": "ASTRO_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME=/tmp pnpm --dir apps/site build",
     "preview": "pnpm --dir apps/site preview",
     "validate": "./scripts/validate.sh",
-    "deploy:aws": "bash -c 'ASTRO_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME=/tmp pnpm --dir apps/site build && set -a; if [ -f .env ]; then source .env; else echo \"Missing .env\"; exit 1; fi; set +a; pnpm --dir infra exec cdk deploy \"$STACK_NAME\" --require-approval never'"
+    "deploy:aws": "bash -c 'ASTRO_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME=/tmp pnpm --dir apps/site build && set -a; if [ -f .env ]; then source .env; else echo \"Missing .env\"; exit 1; fi; set +a; ./scripts/ensure-required-dns-records.sh && pnpm --dir infra exec cdk deploy \"$STACK_NAME\" --require-approval never && ./scripts/ensure-required-dns-records.sh'"
   }
 }

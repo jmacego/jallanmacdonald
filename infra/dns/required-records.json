@@ -1,0 +1,98 @@
+{
+  "domain": "jallanmacdonald.com",
+  "hosted_zone_id": "Z07791743VWC6EE4IIVDS",
+  "records": [
+    {
+      "name": "jallanmacdonald.com.",
+      "type": "A",
+      "alias_target": {
+        "dns_name": "d2tq3k8v3py49.cloudfront.net.",
+        "hosted_zone_id": "Z2FDTNDATAQYW2",
+        "evaluate_target_health": false
+      }
+    },
+    {
+      "name": "jallanmacdonald.com.",
+      "type": "AAAA",
+      "alias_target": {
+        "dns_name": "d2tq3k8v3py49.cloudfront.net.",
+        "hosted_zone_id": "Z2FDTNDATAQYW2",
+        "evaluate_target_health": false
+      }
+    },
+    {
+      "name": "www.jallanmacdonald.com.",
+      "type": "A",
+      "alias_target": {
+        "dns_name": "d2tq3k8v3py49.cloudfront.net.",
+        "hosted_zone_id": "Z2FDTNDATAQYW2",
+        "evaluate_target_health": false
+      }
+    },
+    {
+      "name": "www.jallanmacdonald.com.",
+      "type": "AAAA",
+      "alias_target": {
+        "dns_name": "d2tq3k8v3py49.cloudfront.net.",
+        "hosted_zone_id": "Z2FDTNDATAQYW2",
+        "evaluate_target_health": false
+      }
+    },
+    {
+      "name": "jallanmacdonald.com.",
+      "type": "TXT",
+      "ttl": 3600,
+      "values": [
+        "\"v=spf1 include:spf.protection.outlook.com -all\""
+      ]
+    },
+    {
+      "name": "jallanmacdonald.com.",
+      "type": "MX",
+      "ttl": 3600,
+      "values": [
+        "0 jallanmacdonald-com.mail.protection.outlook.com."
+      ]
+    },
+    {
+      "name": "autodiscover.jallanmacdonald.com.",
+      "type": "CNAME",
+      "ttl": 3600,
+      "values": [
+        "autodiscover.outlook.com."
+      ]
+    },
+    {
+      "name": "selector1._domainkey.jallanmacdonald.com.",
+      "type": "CNAME",
+      "ttl": 3600,
+      "values": [
+        "selector1-jallanmacdonald-com._domainkey.JMacLabs.w-v1.dkim.mail.microsoft."
+      ]
+    },
+    {
+      "name": "selector2._domainkey.jallanmacdonald.com.",
+      "type": "CNAME",
+      "ttl": 3600,
+      "values": [
+        "selector2-jallanmacdonald-com._domainkey.JMacLabs.w-v1.dkim.mail.microsoft."
+      ]
+    },
+    {
+      "name": "_303d70639c33018ffd500251ba14b7fa.jallanmacdonald.com.",
+      "type": "CNAME",
+      "ttl": 300,
+      "values": [
+        "_9db2c1c6bd0f84f3d36efa4ea60d10a0.jkddzztszm.acm-validations.aws."
+      ]
+    },
+    {
+      "name": "_ea01e76194959d084b8788f6cdda33f7.www.jallanmacdonald.com.",
+      "type": "CNAME",
+      "ttl": 300,
+      "values": [
+        "_a73963ff3cc5b2188dbd83f315ddc170.jkddzztszm.acm-validations.aws."
+      ]
+    }
+  ]
+}

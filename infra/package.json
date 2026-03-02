@@ -8,7 +8,7 @@
     "synth": "cdk synth",
     "diff": "cdk diff",
     "deploy": "cdk deploy",
-    "deploy:aws": "bash -c 'set -a && source ../.env && set +a && cdk deploy \"$STACK_NAME\" --require-approval never'"
+    "deploy:aws": "bash -c 'set -a && source ../.env && set +a && ../scripts/ensure-required-dns-records.sh && cdk deploy \"$STACK_NAME\" --require-approval never && ../scripts/ensure-required-dns-records.sh'"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.148.0",
