@@ -6,14 +6,19 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "preview:e2e": "astro preview --host 127.0.0.1 --port 4173",
     "lint": "eslint .",
-    "test": "echo 'No tests yet'"
+    "test": "echo 'No tests yet'",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:install": "playwright install chromium"
   },
   "dependencies": {
     "astro": "^5.17.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "@playwright/test": "^1.58.2",
     "@typescript-eslint/parser": "^8.53.1",
     "astro-eslint-parser": "^1.2.2",
     "eslint": "^9.39.2",

@@ -1,6 +1,25 @@
 ---
-const { title, description, currentPath } = Astro.props;
+import { buildSeo } from "../utils/seo";
+
+const {
+  title,
+  description,
+  currentPath,
+  socialImage,
+  socialImageAlt,
+  ogType,
+} = Astro.props;
 const year = new Date().getFullYear();
+const seo = buildSeo({
+  currentPath: currentPath ?? Astro.url.pathname,
+  siteUrl: Astro.site ?? new URL("https://jallanmacdonald.com"),
+  siteName: "J. Allan MacDonald",
+  socialImage,
+  socialImageAlt,
+  defaultSocialImage: "/assets/pointless-magical-relics-kindle-cover.jpg",
+  defaultSocialImageAlt: "Pointless Magical Relics book cover",
+  ogType,
+});
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/posts/", label: "Posts" },
@@ -15,6 +34,19 @@ const navLinks = [
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href={seo.canonicalUrl} />
+    <meta property="og:type" content={seo.ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={seo.canonicalUrl} />
+    <meta property="og:site_name" content={seo.siteName} />
+    {seo.socialImageUrl && <meta property="og:image" content={seo.socialImageUrl} />}
+    {seo.socialImageAlt && <meta property="og:image:alt" content={seo.socialImageAlt} />}
+    <meta name="twitter:card" content={seo.twitterCard} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {seo.socialImageUrl && <meta name="twitter:image" content={seo.socialImageUrl} />}
+    {seo.socialImageAlt && <meta name="twitter:image:alt" content={seo.socialImageAlt} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

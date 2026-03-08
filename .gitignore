@@ -18,6 +18,8 @@ infra/cdk.out/
 # IDE
 .idea/
 .vscode/
+playwright-report/
+test-results/
 
 # Lock files are committed
 # pnpm-lock.yaml
