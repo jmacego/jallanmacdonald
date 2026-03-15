@@ -1,6 +1,9 @@
 ---
 import { buildSeo } from "../utils/seo";
 
+/** Twitter/X @handle (with @). Leave empty to suppress twitter:site / twitter:creator tags. */
+const TWITTER_HANDLE = "";
+
 const {
   title,
   description,
@@ -8,6 +11,7 @@ const {
   socialImage,
   socialImageAlt,
   ogType,
+  publishedTime,
 } = Astro.props;
 const year = new Date().getFullYear();
 const seo = buildSeo({
@@ -42,7 +46,12 @@ const navLinks = [
     <meta property="og:site_name" content={seo.siteName} />
     {seo.socialImageUrl && <meta property="og:image" content={seo.socialImageUrl} />}
     {seo.socialImageAlt && <meta property="og:image:alt" content={seo.socialImageAlt} />}
+    {ogType === "article" && publishedTime && (
+      <meta property="article:published_time" content={publishedTime} />
+    )}
     <meta name="twitter:card" content={seo.twitterCard} />
+    {TWITTER_HANDLE && <meta name="twitter:site" content={TWITTER_HANDLE} />}
+    {TWITTER_HANDLE && <meta name="twitter:creator" content={TWITTER_HANDLE} />}
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {seo.socialImageUrl && <meta name="twitter:image" content={seo.socialImageUrl} />}
